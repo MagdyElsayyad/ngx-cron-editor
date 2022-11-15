@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import { CronOptions } from 'ngx-cron-editor';
-import { CronGenComponent } from 'ngx-cron-editor';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { CronGenComponent, CronOptions } from '../../../../libs/ngx-cron-editor/public_api';
 
 @Component({
   selector: 'app-root',

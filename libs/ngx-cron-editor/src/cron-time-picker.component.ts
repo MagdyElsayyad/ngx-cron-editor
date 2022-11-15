@@ -26,6 +26,7 @@ export class TimePickerComponent {
   @Input() public hideHours = false;
   @Input() public hideMinutes = false;
   @Input() public hideSeconds = true;
+  @Input() public translations;
 
   public minutes =  [...range(0, 59) ];
   public seconds = [...range(0, 59) ];

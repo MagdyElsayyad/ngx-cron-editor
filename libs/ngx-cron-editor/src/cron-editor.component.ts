@@ -1,8 +1,8 @@
-import { Component, Input, Output, OnInit, EventEmitter, forwardRef } from '@angular/core';
-import { CronOptions } from './CronOptions';
-import { Days, MonthWeeks, Months } from './enums';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
+import { CronOptions } from './CronOptions';
+import { Days, Months, MonthWeeks } from './enums';
 
 
 export const CRON_VALUE_ACCESSOR: any = {
@@ -22,7 +22,62 @@ export class CronGenComponent implements OnInit, ControlValueAccessor {
   @Input() public backgroundColor: ThemePalette;
   @Input() public color: ThemePalette;
   @Input() public disabled: boolean;
-  @Input() public options: CronOptions;
+  @Input() public options: CronOptions = {
+    formInputClass: '',
+    formSelectClass: '',
+    formRadioClass: '',
+    formCheckboxClass: '',
+
+    defaultTime: '',
+
+    hideMinutesTab: false,
+    hideHourlyTab: false,
+    hideDailyTab: false,
+    hideWeeklyTab: false,
+    hideMonthlyTab: false,
+    hideYearlyTab: false,
+    hideAdvancedTab: false,
+    hideSpecificWeekDayTab: false,
+    hideSpecificMonthWeekTab: false,
+
+    use24HourTime: false,
+    hideSeconds: false,
+
+    cronFlavor: 'quartz',
+    translations: {
+        every: 'every',
+        day: 'day',
+        days: 'days',
+        at: 'at',
+        weekDayMonAndFri: 'Weekday (MON-FRI) at',
+        weekDays: {
+            monday: 'monday',
+            tuesday: 'tuesday',
+            wednesday: 'wednesday',
+            thursday: 'thursday',
+            friday: 'friday',
+            saturday: 'saturday',
+            sunday: 'sunday',
+        },
+        atTime: 'at time',
+        onThe: 'On the',
+        ofEvery: 'of every',
+        of: 'of',
+        expression: 'expression',
+        hour: 'hour',
+        minute: 'minute',
+        minutes: 'minutes',
+        second: 'second',
+        seconds: 'seconds',
+        am: 'AM',
+        pm: 'PM',
+        hourly: 'Hourly',
+        daily: 'Daily',
+        weekly: 'Weekly',
+        monthly: 'Monthly',
+        yearly: 'Yearly',
+    }
+  };
   // the name is an Angular convention, @Input variable name + "Change" suffix
   @Output() cronChange = new EventEmitter<string>();
 
